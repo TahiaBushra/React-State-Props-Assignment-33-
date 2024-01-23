@@ -1,15 +1,16 @@
 import { useState } from "react";
-import Colors from "./components/Colors";
+import ParentComp from "./components/ParentComp";
+import User from "./components/User";
 
 const App = () => {
-  const [color, setColor] = useState("pink");
+  const [isLoggedIn, setIsLoggedIn] = useState();
   return (
     <div>
-      <button onClick={() => setColor("pink")}>Change color from app</button>
-      <Colors color={color} setColor={setColor} />
+      <ParentComp isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
+        <User />
+      </ParentComp>
     </div>
   );
 };
 
 export default App;
-// multi-stage mutation
